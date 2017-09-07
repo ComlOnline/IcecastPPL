@@ -18,10 +18,15 @@ elif [ "$2" = "4" ]; then
 	quarter="Oct|Nov|Dec"
 fi
 
+escaped=$(echo $3 | sed 's/\./\\\./g')
 
-main() {
-grep -E '($quarter)\/$1.*\/$3' ./access.log* | awk '{ SUM += $13} END { print SUM/60/60 }'
-}
+
+hours=$(grep -E "($quarter)\/$1.*\/$escaped" ./access.log* | awk '{ SUM += $13} END { printf int(SUM/60/60)+1 }')
+
+BLUE='\033[;36m'
+RED='\033[1;31m'
+NC='\033[0m' # No Color
+echo -e "For ${BLUE}Quarter $2 $1${NC} your total listener hours for mount ${BLUE}$3${NC} is ${RED}$hours${NC}"
 
 
 
@@ -43,6 +48,3 @@ grep -E '($quarter)\/$1.*\/$3' ./access.log* | awk '{ SUM += $13} END { print SU
     # esac
     # shift
 # done
-
-
-main

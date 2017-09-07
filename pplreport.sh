@@ -16,7 +16,6 @@ elif [ "$2" = "3" ]; then
 	quarter = "Jul|Aug|Sep"
 elif [ "$2" = "4" ]; then
 	quarter = "Oct|Nov|Dec"
-elif 
 fi
 
 

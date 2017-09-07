@@ -9,13 +9,13 @@
 if [ "$1" = "" ]||[ "$2" = "" ]||[ "$3" = "" ]; then
     echo "3 arguments are needed see readme for more info"
 elif [ "$2" = "1" ]; then
-	quarter = "Jan|Feb|Mar"
+	quarter="Jan|Feb|Mar"
 elif [ "$2" = "2" ]; then
-	quarter = "Apr|May|Jun"
+	quarter="Apr|May|Jun"
 elif [ "$2" = "3" ]; then
-	quarter = "Jul|Aug|Sep"
+	quarter="Jul|Aug|Sep"
 elif [ "$2" = "4" ]; then
-	quarter = "Oct|Nov|Dec"
+	quarter="Oct|Nov|Dec"
 fi
 
 

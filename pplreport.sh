@@ -21,7 +21,7 @@ fi
 escaped=$(echo $3 | sed 's/\./\\\./g')
 
 
-hours=$(grep -E "($quarter)\/$1.*\/$escaped" ./access.log* | awk '{ SUM += $13} END { printf int(SUM/60/60)+1 }')
+hours=$(grep -E "($quarter)\/$1.*\/$escaped" ./access.log* | awk '{ SUM += $NF} END { printf int(SUM/60/60)+1 }')
 
 BLUE='\033[;36m'
 RED='\033[1;31m'

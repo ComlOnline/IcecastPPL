@@ -1,10 +1,16 @@
 # Icecast log reader for PPL reports
 
 ## *nix systems with grep and awk
-'grep -E '(Jul|Aug|Sep)\/2016.*\/HullfireRadio\.mp3' ./access.log* | awk '{ SUM += $NF} END { print SUM/60/60 }''
 
-Correct function is ./pplreport.sh <year> <quarter> <mount>
+
+Correct function is ```./pplreport.sh <year> <quarter> <mount>```
 
 
 ## Windows Systems using powershell
-May need to run Set-ExecutionPolicy Unrestricted from an elevated prompt to enable powershell scripts
+You may need to run Set-ExecutionPolicy Unrestricted from an elevated prompt to enable powershell scripts
+
+### ToDo
+- [ ] Make the Powershell script take options
+- [ ] Make them feed to influxDB
+- [ ] Pretty Outout
+- [ ] Optomize powershell

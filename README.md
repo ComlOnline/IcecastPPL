@@ -8,4 +8,3 @@ Correct function is ./pplreport.sh <year> <quarter> <mount>
 
 ## Windows Systems using powershell
 May need to run Set-ExecutionPolicy Unrestricted from an elevated prompt to enable powershell scripts
-Also I cheated so you will need to install gawk https://sourceforge.net/projects/gnuwin32/files/gawk/

@@ -14,3 +14,5 @@ You may need to run Set-ExecutionPolicy Unrestricted from an elevated prompt to 
 - [ ] Make them feed to influxDB
 - [ ] Pretty Outout
 - [ ] Optomize powershell
+- [ ] Automated reporting to PPL?
+- [ ] Email reports

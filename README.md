@@ -22,7 +22,7 @@ Where:
 - [ ] Optomize powershell (Make it only search relevent log files)
 - [ ] Email reports
 - [ ] In email remind of PPl details and Link
-- [ ] Fix variance in numbers between scripts
+- [ ] Fix variance in numbers between scripts due to non 0 404 listnener times
 
 ### Helpful
 https://gist.github.com/sunnyone/4291248

@@ -1,4 +1,4 @@
- param (
+param (
     [Parameter(Mandatory=$true)]
 	[int]
 	$year
@@ -20,12 +20,8 @@ ElseIf ($quarter -eq 2) {set-variable -Name months -value 'Apr|May|Jun'}
 ElseIf ($quarter -eq 3) {set-variable -Name months -value 'Jul|Aug|Sep'}
 ElseIf ($quarter -eq 4) {set-variable -Name months -value 'Oct|Nov|Dec'}
 
-<# $pattern=@"
-($months)\/2017.*\/$mount\s.*\s200\s.*\s".*"\s".*"\s[^0]\d*
-"@ Working pattern also changed path#>
-
 $pattern=@"
-(?<=($months)\/$year`:\d\d:\d\d:\d\d\s.\d\d\d\d]\s"GET\s\/$mount\sHTTP\/\d\.\d"\s200\s\d*?\s".*?"\s".*?"\s)[1-9]\d*
+($months)\/2017.*\/$mount\s.*\s200\s.*\s".*"\s".*"\s[^0]\d*
 "@
 
 $target = @()
@@ -41,19 +37,18 @@ If ($items -eq 0) {"Nothing Found for quarter $quarter $year"; BREAK}
 $i = 0
 $percent = 0
 
-<# Write-Progress -Activity "Counting..." `
-	-Status "Please wait." #>
+Write-Progress -Activity "Counting..." `
+	-Status "Please wait."
 
-<# $results.Matches.Value | foreach {
-	$percent = [math]::Round($i/$items*100)
+$results.Matches.Value | foreach {
+	<# $percent = [math]::Round($i/$items*100)
 	Write-Progress -Activity "Counting..." `
 	-PercentComplete $percent -CurrentOperation `
 	"$percent% complete" `
 	-Status "Please wait."
 	$i++ 
-	This is commented out as it makes the script take a lot longer
+	This is commented out as it makes the script take a lot longer#>
 	$target += $_.Split(' ')[-1]
-} by using regex and a positve lookbehind #>
-<# $hours=[math]::Round(($target | Measure-Object -Sum).sum/60/60,2) #>
-$hours=[math]::Round(($results.Matches.Value | Measure-Object -Sum).sum/60/60,2)
+}
+$hours=[math]::Round(($target | Measure-Object -Sum).sum/60/60,2)
 Write-Output "Total listener hours for quarter $quarter $year`: $hours"
